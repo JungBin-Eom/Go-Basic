@@ -9,12 +9,22 @@ Go는 범용 프로그래밍 언어로, 깔끔하고 간결하게 코드를 작�
 7. 컴파일 속도가 빨라서 테스트를 반복적으로 수행할 수 있다.
 8. 가비지 컬렉션을 지원하여 메모리 부담을 덜 수 있다.
 9. 자료형 리터럴을 쉽게 쓸 수 있다.
-> 이렇게나 Go의 장점이 많습니다👍
-  
-    
-구글에서 2009년에 처음 개발되어 2015년 2월 17일에 1.4.2 버전이 안정 버전으로 출시되었습니다.  
-공식 홈페이지 http://golang.org 에 더 많은 정보가 있으니 살펴보시기 바랍니다.
-  
-<img src="https://user-images.githubusercontent.com/61479654/95457300-a196bc00-09ab-11eb-9c94-93711c384956.jpeg"  width="700" height="300">
 
----
+  
+`이렇게나 Go의 장점이 많습니다👍`
+
+  
+구글에서 2009년에 처음 개발되어 2015년 2월 17일에 1.4.2 버전이 안정 버전으로 출시되었습니다.  
+공식 홈페이지 http://golang.org 에 더 많은 정보가 있으니 살펴보시기 바랍니다.  
+  
+``` Go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, world.")
+}
+```
+    
+<img src="https://user-images.githubusercontent.com/61479654/95457300-a196bc00-09ab-11eb-9c94-93711c384956.jpeg"  width="700" height="300">

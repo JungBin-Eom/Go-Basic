@@ -26,5 +26,10 @@ func main() {
     fmt.Println("Hello, world.")
 }
 ```
-    
+  
+  
+#### Go 놀이터
+Go 놀이터는 Go 언어를 컴파일하고 링크하여 실행한 뒤, 결과를 볼 수 있는 웹 서비스입니다.  
+> https://play.golang.org
+
 <img src="https://user-images.githubusercontent.com/61479654/95457300-a196bc00-09ab-11eb-9c94-93711c384956.jpeg"  width="700" height="300">

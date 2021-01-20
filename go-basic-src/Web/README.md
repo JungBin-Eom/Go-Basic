@@ -2,7 +2,8 @@
 `본 디렉토리의 소스코드는 Youtube 채널 'Tucker Programming'님의 강의를 참고하여 작성하였습니다.`  
   
 ---
-  
+
+### Web1(Basic)
 - HTML: Hyper Text Markup Language
 - HTTP: Hyper Text Transfer Protocol
   * Hyper Text를 주고받는 통신 규약
@@ -21,3 +22,11 @@
   * goconvey 실행하여 웹 서버를 구동하고 테스트 수행
     + 일일이 브라우저 실행해보지 않고 백그라운드에서 테스트수행
   * assert 패키지로 쉽게 테스트 코드 작성
+### Web2(File)
+- http.FileServer(http.Dir("<directory_name>"))으로 파일서버 구축
+- 지정한 폴더 내에 웹페이지를 만듦
+- 웹 페이지에서의 동작을 통해 서버로 request
+  * action을 수행할 때 어떤 경로로 갈 것인지 결정
+  * 핸들러 작성하여 해당 경로에 등록
+- 생성(오픈)한 파일은 defer로 프로그램 종료 전 항상 닫아줄 것
+- 업로드 한 파일과 서버로 전송된 파일이 같은지 byte array를 비교하는 과정도 필요

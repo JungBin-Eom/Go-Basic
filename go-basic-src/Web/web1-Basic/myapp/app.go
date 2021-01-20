@@ -40,7 +40,7 @@ func (f *fooHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	data, _ := json.Marshal(user)
 	w.Header().Add("content-type", "application/json") // 전달하는 데이터 타입을 헤더에 명시
-	w.WriteHeader(http.StatusOK)
+	w.WriteHeader(http.StatusCreated)
 	fmt.Fprint(w, string(data))
 }
 

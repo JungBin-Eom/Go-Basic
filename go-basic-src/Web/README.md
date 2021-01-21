@@ -30,3 +30,8 @@
   * 핸들러 작성하여 해당 경로에 등록
 - 생성(오픈)한 파일은 defer로 프로그램 종료 전 항상 닫아줄 것
 - 업로드 한 파일과 서버로 전송된 파일이 같은지 byte array를 비교하는 과정도 필요
+### Web3(RESTful API)
+- RESTful API란?
+  + REST: Representational State Transfer
+  + URL(URI)에 method(GET, POST, PUT, DELETE...)와 함께 표시하여 CRUD 구현
+- 같은 경로로 요청을 보내도 method에 따라 핸들러 달라져야함(당연히 하는 동작이 다르기 때문)

@@ -58,3 +58,7 @@
 - gorilla/pat: 메서드에 따른 핸들러 추가 간단하게 해줌
 - unrolled/render: JSON/XML/binary/HTML 템플릿 렌더링 쉽게 해줌
 - urfave/negroni: HTTP 미들웨어로 많이 쓰이는 부가 기능 추가 쉽게 해줌
+### Web7(EventSource)
+- WebSocket은 TCP 채널을 생성하여 연결을 끊지 않고 send/receive를 가능하게 해주는 통신 프로토콜
+- EventSource는 연결을 끊지 않고 서버에서 이벤트를 보내도록 해주는 인터페이스
+  * push 알림 등에 사용

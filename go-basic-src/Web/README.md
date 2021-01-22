@@ -54,3 +54,7 @@
 - html/template은 특수기호 탈락
   * <script>태그 안에서는 특수기호 유지
 - text/template은 특수기호 유지
+### Web6(Packages)
+- gorilla/pat: 메서드에 따른 핸들러 추가 간단하게 해줌
+- unrolled/render: JSON/XML/binary/HTML 템플릿 렌더링 쉽게 해줌
+- urfave/negroni: HTTP 미들웨어로 많이 쓰이는 부가 기능 추가 쉽게 해줌

@@ -32,17 +32,25 @@
 - 업로드 한 파일과 서버로 전송된 파일이 같은지 byte array를 비교하는 과정도 필요
 ### Web3(RESTful API)
 - RESTful API란?
-  + REST: Representational State Transfer
-  + URL(URI)에 method(GET, POST, PUT, DELETE...)와 함께 표시하여 CRUD 구현
+  * REST: Representational State Transfer
+  * URL(URI)에 method(GET, POST, PUT, DELETE...)와 함께 표시하여 CRUD 구현
 - 같은 경로로 요청을 보내도 method에 따라 핸들러 달라져야함(당연히 하는 동작이 다르기 때문)
 - update시 원하는 필드만 업데이트 할 수 있도록 struct를 새로 만듬
 ### Web4(Decorator)
 - Decorator란?
-  + 프로그래밍 패턴 중 하나
-  + 꾸미기 역할(기본 기능은 갖추고 있으면서 부가기능을 추가)
-  + 잘 바뀌는 부가기능의 특성 상 기능별로 따로 분리하여 만들어야 함
-    * 하나로 묶어서 만들면 부가기능이 수정될 때마다 모든 기능을 바꾸어야 함
+  * 프로그래밍 패턴 중 하나
+  * 꾸미기 역할(기본 기능은 갖추고 있으면서 부가기능을 추가)
+  * 잘 바뀌는 부가기능의 특성 상 기능별로 따로 분리하여 만들어야 함
+    + 하나로 묶어서 만들면 부가기능이 수정될 때마다 모든 기능을 바꾸어야 함
 - 하나의 인터페이스를 구현한 구조체를 내장하여 전달
 - 웹서버에서 decorator 패턴이 필요한 이유
-  + 문서를 만들어서 response를 전달하는 기본기능에 부가기능을 더하여 보냄
-    * 암호화, 압축, log 기록, 분석 자료 전송 등을 부가기능이라고 함
+  * 문서를 만들어서 response를 전달하는 기본기능에 부가기능을 더하여 보냄
+    + 암호화, 압축, log 기록, 분석 자료 전송 등을 부가기능이라고 함
+### Web5(Template)
+- html/template 패키지 사용
+- HTML을 만들 때 내용을 채움
+  * 변경되지 않는 부분은 template화
+  * 변경되는 부분을 바꾸어 채우기
+- html/template은 특수기호 탈락
+  * <script>태그 안에서는 특수기호 유지
+- text/template은 특수기호 유지

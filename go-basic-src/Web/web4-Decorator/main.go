@@ -1,102 +1,37 @@
 package main
 
 import (
-	"fmt"
+	"Go-Basic/go-basic-src/Web/web4-Decorator/myapp"
+	"log"
+	"net/http"
+	"time"
 
-	"github.com/tuckersGo/goWeb/web9/cipher"
-	"github.com/tuckersGo/goWeb/web9/lzw"
+	"github.com/tuckersGo/goWeb/web10/decoHandler"
 )
 
-type Component interface {
-	Operator(string)
+func logger1(w http.ResponseWriter, r *http.Request, h http.Handler) {
+	start := time.Now()
+	log.Println("[LOGGER1] Started")
+	h.ServeHTTP(w, r)
+	log.Println("[LOGGER1] Completed time:", time.Since(start).Milliseconds())
 }
 
-var sentData string
-var recvData string
-
-type SendComponent struct{}
-
-func (self *SendComponent) Operator(data string) {
-	// send data
-	sentData = data
+func logger2(w http.ResponseWriter, r *http.Request, h http.Handler) {
+	start := time.Now()
+	log.Println("[LOGGER2] Started")
+	h.ServeHTTP(w, r)
+	log.Println("[LOGGER2] Completed time:", time.Since(start).Milliseconds())
 }
 
-type ZipComponent struct {
-	com Component
-}
-
-func (self *ZipComponent) Operator(data string) {
-	zipData, err := lzw.Write([]byte(data))
-	if err != nil {
-		panic(err)
-	}
-	self.com.Operator(string(zipData))
-}
-
-type EncryptComponent struct {
-	key string
-	com Component
-}
-
-func (self *EncryptComponent) Operator(data string) {
-	encryptData, err := cipher.Encrypt([]byte(data), self.key)
-	if err != nil {
-		panic(err)
-	}
-	self.com.Operator(string(encryptData))
-}
-
-type DecryptComponent struct {
-	key string
-	com Component
-}
-
-func (self *DecryptComponent) Operator(data string) {
-	decryptData, err := cipher.Decrypt([]byte(data), self.key)
-	if err != nil {
-		panic(err)
-	}
-	self.com.Operator(string(decryptData))
-}
-
-type UnzipComponent struct {
-	com Component
-}
-
-func (self *UnzipComponent) Operator(data string) {
-	unzipData, err := lzw.Read([]byte(data))
-	if err != nil {
-		panic(err)
-	}
-	self.com.Operator(string(unzipData))
-}
-
-type ReceiveComponent struct{}
-
-func (self *ReceiveComponent) Operator(data string) {
-	recvData = data
+func NewHandler() http.Handler {
+	h := myapp.NewHandler()
+	h = decoHandler.NewDecoHandler(h, logger1)
+	h = decoHandler.NewDecoHandler(h, logger2)
+	return h
 }
 
 func main() {
-	sender := &EncryptComponent{key: "abcde",
-		com: &ZipComponent{
-			com: &SendComponent{},
-		},
-	}
+	mux := NewHandler()
 
-	sender.Operator("Hello World")
-	// EncryptComponent의 Operator 호출
-	// -> ZipComponent의 Operator 호출
-	// -> SendComponent의 Operator 호출
-	fmt.Println(sentData)
-
-	receiver := &UnzipComponent{
-		com: &DecryptComponent{
-			key: "abcde",
-			com: &ReceiveComponent{},
-		},
-	}
-
-	receiver.Operator(sentData)
-	fmt.Println(recvData)
+	http.ListenAndServe(":3000", mux)
 }

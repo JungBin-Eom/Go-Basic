@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Go-Basic/go-basic-src/Web/web1/myapp"
+	"Go-Basic/go-basic-src/Web/web1-Basic/myapp"
 	"net/http"
 )
 

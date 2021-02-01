@@ -1,12 +1,11 @@
 package main
 
 import (
+	"Go-Basic/go-basic-src/Web/web4-Decorator/decoHandler"
 	"Go-Basic/go-basic-src/Web/web4-Decorator/myapp"
 	"log"
 	"net/http"
 	"time"
-
-	"github.com/tuckersGo/goWeb/web10/decoHandler"
 )
 
 func logger1(w http.ResponseWriter, r *http.Request, h http.Handler) {
